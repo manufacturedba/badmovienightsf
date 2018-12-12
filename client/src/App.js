@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import EventList from './components/event-list';
-import "./App.css";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import './App.css';
+
 class App extends Component {
   state = {
     events: "",
@@ -19,6 +21,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div class="i-will-be-your-icon">icon</div>
+        <div class="i-will-be-your-links">
+          <a href="/home">Home</a>
+        </div>
         <EventList events={this.state.events} />
       </div>
     );
