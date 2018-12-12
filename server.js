@@ -30,7 +30,7 @@ app.get('/api/events', (req, res) => {
   };
   request.get({ url, qs }, (error, response, body) => {
     if (!error && response.statusCode === 200) {
-      res.json(body);
+      res.send(body);
     }
   });
 });
@@ -43,7 +43,7 @@ app.get('/api/event/:eventId/photos', (req, res) => {
   };
   request.get({ url, qs }, (error, response, body) => {
     if (!error && response.statusCode === 200) {
-      res.json(body);
+      res.send(body);
     }
   });
 });
