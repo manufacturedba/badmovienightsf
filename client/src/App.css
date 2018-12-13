@@ -39,7 +39,7 @@ body {
 
 .the-title {
   color: black;
-  background-color: yellow;
+  background-color: #bfff00;
   margin-top: auto;
   margin-left: 20px;
 }
@@ -112,7 +112,7 @@ a, .lunk {
 }
 
 .make-me-like-a-button {
-  background: lime;
+  background: #bfff00;
   color: #000;
   padding: 5px 10px 5px 10px;
   border-radius: 2px;
