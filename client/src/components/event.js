@@ -1,3 +1,5 @@
+/*global fbq */
+
 import React, { Component } from "react";
 import './Event.css';
 
@@ -21,6 +23,10 @@ function getEventPhotoObj(event) {
   }
 }
 
+function punchItChewie() {
+  fbq('track', 'ViewContent');
+}
+
 class Event extends Component {
   render() {
     return (
@@ -30,7 +36,7 @@ class Event extends Component {
           <small className="like-a-rolling-stone">{getAReadableDate(this.props.event.time)}</small>&nbsp;
           {this.props.event.name}
           <small className="like-a-rolling-stone to-rsvp">
-            <a className="make-me-like-a-button" href={this.props.event.link}>RSVP</a>
+            <a className="make-me-like-a-button" onClick={punchItChewie} href={this.props.event.link}>RSVP</a>
           </small>
         </h2>
         <div className="i-can-read" dangerouslySetInnerHTML={{ __html: this.props.event.description }}></div>
