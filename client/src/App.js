@@ -73,7 +73,7 @@ class App extends Component {
             <Route path="/contact" component={ContactRoute}></Route>
             <div className="stinky-footer">
               <div className="i-like-rice">
-                <img alt="Non-functional visitor counter" src={totallyWorkingCounter} />
+                <img className="give-it-a-bit-more" alt="Non-functional visitor counter" src={totallyWorkingCounter} />
                 <div>
                   <a className="foot-cheese" href="https://www.meetup.com/Bad-Movie-Night-San-Francisco">
                     <FontAwesomeIcon size="2x" icon={['fab', 'meetup']}/>
