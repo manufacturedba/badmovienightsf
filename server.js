@@ -4,6 +4,7 @@ const path = require('path');
 const request = require('request');
 const cachedRequest = require('cached-request')(request);
 const cacheDirectory = '/tmp/cache';
+const enforce = require('express-sslify');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -54,6 +55,8 @@ app.get('/api/event/:eventId/photos', (req, res) => {
   });
 });
 if (process.env.NODE_ENV === 'production') {
+  // Upgrade to HTTPS 5ever
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
   // Handle React routing, return all requests to React app

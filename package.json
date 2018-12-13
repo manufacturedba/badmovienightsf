@@ -12,6 +12,7 @@
     "body-parser": "^1.18.3",
     "cached-request": "^1.1.4",
     "express": "^4.16.4",
+    "express-sslify": "^1.2.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
