@@ -191,6 +191,14 @@ bytes@3.0.0:
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
   integrity sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=
 
+cached-request@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/cached-request/-/cached-request-1.1.4.tgz#66b20e1e9a31192adb03a04c59ec0275b450808b"
+  integrity sha512-fbiHDxfJdVcHMBxpF0jGBp7GsyajSx8PVGCoktj39+AA4mC2v0PV/MgLYFvyzS84rZwD3MpC1nIv7eX0aXajTg==
+  dependencies:
+    graceful-fs "^4.0.0"
+    mkdirp "^0.5.1"
+
 caller-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/caller-path/-/caller-path-0.1.0.tgz#94085ef63581ecd3daa92444a8fe94e82577751f"
@@ -886,7 +894,7 @@ globals@^11.7.0:
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.9.0.tgz#bde236808e987f290768a93d065060d78e6ab249"
   integrity sha512-5cJVtyXWH8PiJPVLZzzoIizXx944O4OmRro5MWKx5fT4MgcN7OfaMutPeaTdJCCURwbWdhhcCWcKIffPnmTzBg==
 
-graceful-fs@^4.1.2:
+graceful-fs@^4.0.0, graceful-fs@^4.1.2:
   version "4.1.15"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
   integrity sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA==

@@ -9,10 +9,23 @@ function getAReadableDate(time) {
   return `${date.toLocaleDateString('en-US', options)}`;
 }
 
+function getEventPhotoObj(event) {
+  if (!event.photos) {
+    return {};
+  }
+
+  const { photos } = event;
+  return {
+    highres_link: photos[0].highres_link,
+    caption: photos[0].caption,
+  }
+}
+
 class Event extends Component {
   render() {
     return (
       <div className="Event">
+        <img className="the-main-attraction-photo" src={getEventPhotoObj(this.props.event).highres_link} alt={getEventPhotoObj(this.props.event).caption} />
         <h2>
           <small className="like-a-rolling-stone">{getAReadableDate(this.props.event.time)}</small>&nbsp;
           {this.props.event.name}
@@ -20,7 +33,7 @@ class Event extends Component {
             <a className="make-me-like-a-button" href={this.props.event.link}>RSVP</a>
           </small>
         </h2>
-        <div dangerouslySetInnerHTML={{ __html: this.props.event.description }}></div>
+        <div className="i-can-read" dangerouslySetInnerHTML={{ __html: this.props.event.description }}></div>
       </div>
     );
   }

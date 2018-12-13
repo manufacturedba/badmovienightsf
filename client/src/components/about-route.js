@@ -8,7 +8,7 @@ class AboutRoute extends Component {
         It was a warm, whiskey filled October evening when&nbsp;
         <a className="lunk" href="https://roberto-rodriguez.com" rel="noopener noreferrer" target="_blank">Roberto Rodriguez</a>
         &nbsp;spawned into existence the bad movie night community onto Meetup.  Since
-        then he has nothing to show for it, but longs daily to grow a community of movie
+        then, he has nothing to show for it, but longs daily to grow a community of movie
         geeks and theatre miscreants.  Being a child of the 90s, a software something,
         and a general lazy individual, he decided to create this junky website as a
         tribute to a pretty alright decade.

@@ -2,3 +2,11 @@
   border: 1px solid white;
   padding: 5px;
 }
+
+.the-main-attraction-photo {
+  max-width: 300px;
+}
+
+.i-can-read {
+  line-height: 1.666;
+}

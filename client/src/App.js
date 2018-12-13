@@ -4,6 +4,7 @@ import AboutRoute from './components/about-route';
 import ContactRoute from './components/contact-route';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import logo from './credit-goes-to-trolls-two.jpeg';
 import fingerPointingLol from './finger-pointing-lol.jpeg';
 import totallyWorkingCounter from './totally-working-counter.gif';
@@ -28,6 +29,15 @@ class App extends Component {
         return Promise.all(ids.map(id => {
           return this.callEventPhotos(id);
         }));
+      })
+      .then(packedPhotos => {
+        const orignalEvents = this.state.events;
+        const allPhotos = packedPhotos.flat();
+        const events = orignalEvents.map(event => {
+          const photos = allPhotos.filter(photo => photo.photo_album.event.id === event.id);
+          return { ...event, photos };
+        });
+        this.setState({ events });
       })
       .catch(err => console.log(err));
   }
@@ -64,6 +74,17 @@ class App extends Component {
             <div className="stinky-footer">
               <div className="i-like-rice">
                 <img alt="Non-functional visitor counter" src={totallyWorkingCounter} />
+                <div>
+                  <a className="foot-cheese" href="https://www.meetup.com/Bad-Movie-Night-San-Francisco">
+                    <FontAwesomeIcon size="2x" icon={['fab', 'meetup']}/>
+                  </a>
+                  <a className="foot-cheese" href="https://www.facebook.com/groups/927452590788620/">
+                    <FontAwesomeIcon size="2x" icon={['fab', 'facebook']}/>
+                  </a>
+                  <a className="foot-cheese" href="https://www.github.com/manufacturedba/badmovienightsf">
+                    <FontAwesomeIcon size="2x" icon={['fab', 'github']}/>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -2,12 +2,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const request = require('request');
+const cachedRequest = require('cached-request')(request);
+const cacheDirectory = '/tmp/cache';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const { MEET_UP_API_KEY } = process.env;
 const MEET_UP_API_ENDPOINT = 'https://api.meetup.com';
 const MEET_UP_GROUP_NAME = 'Bad-Movie-Night-San-Francisco';
+
+// Cache setup
+cachedRequest.setCacheDirectory(cacheDirectory);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,7 +33,7 @@ app.get('/api/events', (req, res) => {
   const qs = {
     key: MEET_UP_API_KEY,
   };
-  request.get({ url, qs }, (error, response, body) => {
+  cachedRequest({ url, qs }, (error, response, body) => {
     if (!error && response.statusCode === 200) {
       res.send(body);
     }
@@ -41,7 +46,8 @@ app.get('/api/event/:eventId/photos', (req, res) => {
   const qs = {
     key: MEET_UP_API_KEY,
   };
-  request.get({ url, qs }, (error, response, body) => {
+
+  cachedRequest({ url, qs }, (error, response, body) => {
     if (!error && response.statusCode === 200) {
       res.send(body);
     }
@@ -55,4 +61,5 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
+
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
