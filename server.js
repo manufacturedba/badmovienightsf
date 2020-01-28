@@ -35,10 +35,15 @@ app.get('/api/events', (req, res) => {
     key: MEET_UP_API_KEY,
   };
   cachedRequest({ url, qs }, (error, response, body) => {
-    if (!error && response.statusCode === 200) {
+    if (error) {
+      console.error(error.stack);
+      res.status(500).send('Error sending events');
+      return;
+    }
+
+    if (response.statusCode === 200) {
       res.send(body);
     } else {
-      console.error(error.stack);
       res.status(500).send('Error sending events');
     }
   });
