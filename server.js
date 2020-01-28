@@ -37,6 +37,9 @@ app.get('/api/events', (req, res) => {
   cachedRequest({ url, qs }, (error, response, body) => {
     if (!error && response.statusCode === 200) {
       res.send(body);
+    } else {
+      console.error(error.stack);
+      res.status(500).send('Error sending events');
     }
   });
 });
